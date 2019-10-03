@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Welcome to Firebase Hosting</title>
-
 		<!-- update the version number as needed -->
 		<script defer src="/__/firebase/7.0.0/firebase-app.js"></script>
 		<!-- include only the Firebase features as you need -->
@@ -17,24 +13,15 @@
 		<script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 
 		<script src = "common.js"></script>
-		<script src = "signup.js"></script>
-
+		<script src = "magicItem.js"></script>
 	</head>
 
 	<body>
-		<div id="signup">
-			<h3><strong>CREATE AN ACCOUNT</strong></h3>
-			<br>
-			<input type="text" id="username" placeholder="username" autofocus>
-			<br>
-			<input type="text" id="email" placeholder="email">
-			<br>
-			<input type="password" id="password" placeholder="password">
-			<br>
-			<input type="password" id="confirm" placeholder="password">
-			<br>
-			<button onclick="login()">login</button>
-			<button onclick="signup()">create account</button>
+		<div id="magicitem">
+			<input type="text" id="name" placeholder="Item Name">
+			<input type="text" id="description" placeholder="Item Description">
+			<input type="text" id="secret" placeholder="GM Description">
+			<button onclick="addMagicItem()">Create Magic Item</button>
 		</div>
 	</body>
 </html>

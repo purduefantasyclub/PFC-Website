@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
 		<!-- update the version number as needed -->
 		<script defer src="/__/firebase/7.0.0/firebase-app.js"></script>
 		<!-- include only the Firebase features as you need -->
@@ -11,13 +10,24 @@
 		<script defer src="/__/firebase/7.0.0/firebase-storage.js"></script>
 		<!-- initialize the SDK after all desired features are loaded -->
 		<script defer src="/__/firebase/init.js"></script>
+		<script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 
+		<script src="common.js"></script>
 		<script src="main.js"></script>
 	</head>
 
 	<body>
-		<button onclick="signout()">sign out</button>
 		<h1><strong> MAIN PAGE </strong></h1>
-	</body>
+		<br>
+		<button onclick="signout()">sign out</button>
+		<button onclick="characters()">characters</button>
+		<button onclick="gm()">gm stuff</button>
+		<br>
+		<div id="content">
+			<button onclick="magicItems()">Magic Item Archives</button>
+			<div id="announcements">
 
+			</div>
+		</div>
+	</body>
 </html>

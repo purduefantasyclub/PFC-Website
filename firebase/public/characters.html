@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Welcome to Firebase Hosting</title>
+
+		<!-- update the version number as needed -->
+		<script src="/__/firebase/7.0.0/firebase-app.js"></script>
+		<!-- include only the Firebase features as you need -->
+		<script src="/__/firebase/7.0.0/firebase-auth.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-database.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-messaging.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-storage.js"></script>
+		<!-- intialize the SDK after all desired features are loaded -->
+		<script src="/__/firebase/init.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+
+		<script src = "common.js"></script>
+		<script src = "characters.js"></script>
+	</head>
+
+	<body>
+		<input type="text" id="newCharacterName">
+		<button id="createChar" onclick="createNewCharacter()">create a new character</button>
+		<select id="characters" onchange="displayCharacter()">
+		</select>
+		<div id="characterSheer">
+			<div id="info">
+			</div>
+
+			<div id="stats">
+			</div>
+		</div>
+	</body>
+</html>
+

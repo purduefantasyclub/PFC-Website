@@ -1,13 +1,7 @@
 function init() {
-	firebase.auth().onAuthStateChanged(function(user) {
-		if (user) {
-			// User is signed in.
-		} else {
-			// No user is signed in.
-			location.replace("index.html");
-		}
+	initDB()
+	watchUser(function(){
 	});
-
 }
 
 function signout() {
@@ -16,6 +10,20 @@ function signout() {
 	}).catch(function(error) {
 		// An error happened.
 	});
+}
+
+function characters() {
+	changePage("characters.html");
+}
+
+function gm() {
+	verifyPrivilege("gm", function() {
+		changePage("gm.html");
+	});
+}
+
+function magicItems() {
+	changePage("archives.html");
 }
 
 window.onload = init
