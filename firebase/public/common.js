@@ -1,9 +1,17 @@
+// User privilege levels
 const PRIV_SUSPENDED = 1;
 const PRIV_PLAYER = 2;
 const PRIV_GM = 3;
 const PRIV_STAFF = 4;
 const PRIV_APPROVALS = 5;
 const PRIV_ADMIN = 6;
+
+// Item approval status
+const APPROVAL_PENDING = "pending";
+const APPROVAL_DEFERRED = "deferred";
+const APPROVAL_PLAYTEST = "playtest";
+const APPROVAL_APPROVED = "approved";
+const APPROVAL_REJECTED = "rejected";
 
 var db = null;
 var user = null

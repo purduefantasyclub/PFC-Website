@@ -6,10 +6,15 @@ function init() {
 }
 
 async function search() {
+	let itemSearch = document.getElementById('itemSearch').value;
 	let itemList = document.getElementById('itemList');
+	if (itemSearch == "") {
+		clearItems(itemList);
+		return;
+	}
+	
 	matchingItems = [];
 
-	let itemSearch = document.getElementById('itemSearch').value;
 	let matches = [];
 	await searchGMID(itemSearch, matches);
 	await searchItemName(itemSearch, matches);
@@ -28,6 +33,7 @@ async function searchGMID(searchParameters, matches) {
 		querySnapshot.forEach(function(doc) {
 			let itemID = doc.id;
 			let name = doc.data().name;
+			let desc = doc.data().description;
 			if (itemID.toLowerCase().includes(searchParameters.toLowerCase())) {
 				let match = {
 					id: itemID,
@@ -46,6 +52,7 @@ async function searchItemName(searchParameters, matches) {
 			querySnapshot.forEach(function(doc) {
 				let itemID = doc.id;
 				let name = doc.data().name;
+				let desc = doc.data().description;
 				if (name.toLowerCase().includes(searchParameters.toLowerCase())) {
 					let match = {
 						id: itemID,
@@ -64,18 +71,32 @@ function addItem(itemID, name) {
 		return;
 	}
 	matchingItems.push(itemID);
-	let itemInfo = document.createElement('div');
-	itemInfo.id = 'item';
-	itemInfo.value = itemID;
+	let itemDiv = document.createElement('div');
+	itemDiv.className = 'item';
+	itemDiv.value = itemID;
 
-	let nameNode = document.createTextNode(name);
-	itemInfo.appendChild(nameNode);
+	let itemCell = document.createElement("span");
+	
+	let infoID = document.createElement("div");
+	let idSpan = document.createElement("span");
+	idSpan.textContent = itemID;
+	infoID.className = "itemInfo";
+	infoID.id = "id";
+	infoID.appendChild(idSpan);
 
+	let infoName = document.createElement("div");
+	let nameSpan = document.createElement("span");
+	nameSpan.textContent = name;
+	infoName.className = "itemInfo";
+	infoName.id = "name";
+	infoName.appendChild(nameSpan);
+	
 	let itemList = document.getElementById('itemList');
 	let item = document.createElement('li');
-	item.appendChild(itemInfo);
+	itemDiv.appendChild(infoID);
+	itemDiv.appendChild(infoName);
+	item.appendChild(itemDiv);
 	itemList.append(item);
-	console.log('adding item');
 }
 
 function clearItems(list) {
@@ -83,3 +104,4 @@ function clearItems(list) {
 }
 
 window.onload = init;
+

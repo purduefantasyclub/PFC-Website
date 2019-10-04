@@ -1,0 +1,30 @@
+#characters, #content {
+	display: inline-block;
+}
+
+#characters {
+	border: 1px solid black;
+	height: 90vh;
+	width: 200px;
+	background-color: rgb(245, 245, 245);
+}
+
+#characterList {
+	list-style: none;
+	padding: 0px;
+}
+
+.character {
+	border: 1px solid black;
+	margin: 20px 10px;
+	padding: 20px 0px;
+	word-wrap: break-word;
+	text-align: center;
+	background-color: white;
+	font-size: 18px;
+}
+
+#content {
+	vertical-align: top;
+}
+

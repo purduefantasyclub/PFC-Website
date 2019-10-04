@@ -18,18 +18,28 @@
 
 		<script src = "common.js"></script>
 		<script src = "characters.js"></script>
+
+		<link rel="stylesheet" href="common.css">
+		<link rel="stylesheet" href="characters.css">
 	</head>
 
 	<body>
-		<input type="text" id="newCharacterName">
-		<button id="createChar" onclick="createNewCharacter()">create a new character</button>
-		<select id="characters" onchange="displayCharacter()">
-		</select>
-		<div id="characterSheer">
-			<div id="info">
+		<div>
+			<div id="characters">
+				<ul id="characterList">
+				</ul>
 			</div>
-
-			<div id="stats">
+			<div id="content">
+				<input type="text" id="newCharacterName">
+				<button id="createChar" onclick="createNewCharacter()">create a new character</button>
+				<select id="charactersOLD" onchange="displayCharacter()">
+				</select>
+				<div id="characterSheet">
+					<div id="info">
+					</div>
+					<div id="stats">
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>

@@ -1,7 +1,44 @@
+#search {
+	margin-top: 80px;
+	margin-left: 60px;
+}
+
+#itemSearch {
+	-webkit-appearance: none;
+	width: 200px;
+	height: 50px;
+}
+
+#itemContainer {
+	border: 1px solid black;
+	text-align: center;
+	margin: 40px auto 0px auto;
+	width: 80%;
+	height: 60vh;
+	background-color: rgb(245, 245, 245);
+	overflow-y: auto;
+}
+
 #itemList {
 	list-style: none;
+	padding: 0px;
 }
 
-#item {
-
+.item {
+	background-color: white;
+	border: 1px solid black;
+	margin: 10px auto;
+	width: 80%;
+	height: auto;
 }
+
+.itemInfo {
+	display: inline-block;
+	padding: 20px 0px;
+	width: 50%;
+	max-width: 50%;
+	word-wrap: break-word;
+	text-align: left;
+	vertical-align: top;
+}
+

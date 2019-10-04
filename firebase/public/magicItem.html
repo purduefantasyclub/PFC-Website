@@ -18,27 +18,40 @@
 
 	<body>
 		<div id="magicitem">
+			<span>Item Name:</span>
 			<input type="text" id="name" placeholder="Item Name">
+			<br>
+			<span>Magic Type:</span>
 			<select id="magicType">
 				<option value="fire">Fire</option>
 				<option value="earth">Earth</option>
 				<option value="water">Water</option>
+				<option value="ice">Ice</option>
 				<option value="air">Air</option>
+				<option value="poison">Ice</option>
 				<option value="divine">Divine</option>
 			</select>
-				<input type="checkbox" id="consumable">
 			<br>
-			holds <input type="number" id="charges"> charges
-			recharges every <input type="number" id="recharge"> <select id="chargetime">
+			<span>Charges:</span>
+			<input type="number" id="charges">
+			<br>
+			<span>Recharge Time:<span>
+			<input type="number" id="recharge"> 
+			<select id="chargetime">
 				<option value="minutes">minutes</option>
 				<option value="hours">hours</option>
 				<option value="days">days</option>
 				<option value="weeks">weeks</option>
 				<option value="months">months</option>
 				<option value="years">years</option>
+				<option value="never">never</option>
 			</select>
+			<textarea rows="10" cols="200" id="description" placeholder="Item Description"></textarea>
+			<textarea rows="10" cols="200" id="secret" placeholder="GM Description"></textarea>
+			<!--
 			<input type="text" id="description" placeholder="Item Description">
 			<input type="text" id="secret" placeholder="GM Description">
+			-->
 			<button onclick="addMagicItem()">Create Magic Item</button>
 		</div>
 	</body>

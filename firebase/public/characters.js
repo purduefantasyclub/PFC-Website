@@ -10,24 +10,30 @@ function loadCharacterList() {
 	let playerRef = db.collection("players").doc(user.uid);
 	playerRef.get().then(function(doc) {
 		if (doc.exists) {
-			let characterList = document.getElementById("characters");
 			let data = doc.data();
-			characters = data.characters;
-
-			removeOptions(characterList);
-
-			let option = document.createElement("option");
-			option.text = "";
-			characterList.add(option);
+			let	characters = data.characters;
 
 			for (i = 0; i < characters.length; i++) {
 				let character = characters[i];
-				let option = document.createElement("option");
-				option.text = character.name;;
-				characterList.add(option);
+				let characterName = character.name;
+				addCharacterItem(characterName);
 			}
 		}
 	});
+}
+
+// Create the necessary elements and adds it to the list of characters
+function addCharacterItem(characterName) {
+	let characterList = document.getElementById("characterList");
+	let name = characterName;
+	let charDiv = document.createElement("div");
+	charDiv.className = "character";
+
+	let charSpan = document.createElement("span");
+	charSpan.textContent = name;
+	charDiv.appendChild(charSpan);
+
+	characterList.appendChild(charDiv);
 }
 
 // Create a new character
