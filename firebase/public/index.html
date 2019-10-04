@@ -2,7 +2,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Welcome to Firebase Hosting</title>
-
 	<!-- update the version number as needed -->
 	<script defer src="/__/firebase/7.0.0/firebase-app.js"></script>
 	<!-- include only the Firebase features as you need -->
@@ -16,16 +15,21 @@
 	<script src = "common.js"></script>
 	<script src = "index.js"></script>
 	<script src = "login.js"></script>
+
+	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 	<div id="login">
-		<input type="text" id="email" placeholder="email" autofocus>
-		<br>
-		<input type="password" id="password" placeholder="password">
-		<br>
-		<button onclick="signup()">create account</button>
-		<button onclick="login()">login</button>
+		<h3><strong>Login to Purdue Fantasy Club</strong></h3>
+		<div id="loginInput">
+			<input type="text" id="email" placeholder="email" autofocus>
+			<br>
+			<input type="password" id="password" placeholder="password">
+		</div>
+		<button id="signupBtn" onclick="signup()">create account</button>
+		<button id="loginBtn"onclick="login()">login</button>
 	</div>
 </body>
 </html>

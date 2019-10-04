@@ -65,7 +65,8 @@ function createPlayer(user, name) {
 	db.collection("players").doc(uid).set({
 		name: 	    name,
 		characters: [],
-		userLevel:  "player",
+		userLevel:  2,
+		items: 0,
 	}).then(function() {
 		changePage("main.html");
 	}).catch(function(error) {

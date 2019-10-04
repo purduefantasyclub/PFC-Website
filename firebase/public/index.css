@@ -1,0 +1,30 @@
+* {
+}
+
+#login {
+	border: 1px solid black;
+	width: 400px;
+	margin: 100px auto;
+	text-align: center;
+	padding: 20px 20px 0px 20px;
+	background-color: rgb(250, 250, 250); 
+}
+
+#login h3 {
+	padding-bottom: 60px;
+}
+#email, #password {
+	height: 50px;
+    width: 250px;
+    margin: 20px;
+}
+
+#loginInput {
+	margin-bottom: 100px;
+}
+
+#loginBtn, #signupBtn {
+	height: 40px;
+	width: 130px;
+	margin-bottom: 60px;
+}

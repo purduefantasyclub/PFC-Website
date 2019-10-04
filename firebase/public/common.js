@@ -1,3 +1,10 @@
+const PRIV_SUSPENDED = 1;
+const PRIV_PLAYER = 2;
+const PRIV_GM = 3;
+const PRIV_STAFF = 4;
+const PRIV_APPROVALS = 5;
+const PRIV_ADMIN = 6;
+
 var db = null;
 var user = null
 
@@ -10,18 +17,32 @@ function verifyPrivilege(privilege, callback) {
 	playerRef.get().then(function(doc) {
 		if (doc.exists) {
 			let playerData = doc.data()
-			if (playerData.privilege == privilege) {
+			if (playerData.privilege >= privilege) {
 				callback();
 			}
 			else {
+				console.log(playerData.privilege);
 				alert("You do not have high enough privilege to access this");
 			}
 		}
 	});
 }
 
+function signout() {
+	firebase.auth().signOut().then(function() {
+		// Sign-out successful.
+	}).catch(function(error) {
+		// An error happened.
+	});
+}
+
 function changePage(url) {
-	location.replace(url);
+	window.location.href = url;
+}
+
+function removeOverlay() {
+	let overlay = document.getElementById("overlay");
+	overlay.style.display = "none";
 }
 
 function removeOptions(selectbox) {
@@ -40,6 +61,21 @@ function watchUser(callback) {
 		if (!watchUser) {
 			changePage("index.html");
 		}
+	});
+}
+
+function enforceAccess(privilege, callback) {
+	let uid = user.uid;
+	db.collection("players").doc(uid).get().then(function(doc) {
+		let data = doc.data();
+		if (privilege > data.privilege) {
+			changePage("main.html");
+		}
+		else {
+			callback();
+		}
+	}).catch(function(error) {
+
 	});
 }
 

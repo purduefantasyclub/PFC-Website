@@ -1,11 +1,7 @@
 function init() {
 	console.log("loading")
-	
-	try {
-		let app = firebase.app();
-	} catch (e) {
-		console.error(e);
-	}
+	signout();
+	loginInit();
 
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {

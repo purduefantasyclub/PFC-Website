@@ -7,7 +7,7 @@ function init() {
 
 // Load player's characters into selection
 function loadCharacterList() {
-	let playerRef = db.collection("players").doc(uid);
+	let playerRef = db.collection("players").doc(user.uid);
 	playerRef.get().then(function(doc) {
 		if (doc.exists) {
 			let characterList = document.getElementById("characters");
@@ -15,6 +15,10 @@ function loadCharacterList() {
 			characters = data.characters;
 
 			removeOptions(characterList);
+
+			let option = document.createElement("option");
+			option.text = "";
+			characterList.add(option);
 
 			for (i = 0; i < characters.length; i++) {
 				let character = characters[i];
@@ -66,7 +70,7 @@ function createDefaultCharacter(name) {
 		events: [],
 	}).then(function(docRef) {
 		let charID = docRef.id;
-		let playerRef = db.collection("players").doc(uid);
+		let playerRef = db.collection("players").doc(user.uid);
 		playerRef.get().then(function(doc) {
 			if (doc.exists) {
 				let data = doc.data();
@@ -100,7 +104,11 @@ function createDefaultCharacter(name) {
 // Populate character sheet with information
 function displayCharacter() {
 	let name = document.getElementById("characters").value;
-	let playerRef = db.collection("players").doc(uid);
+	if (name == "") {
+		alert("please select a character");
+		return;
+	}
+	let playerRef = db.collection("players").doc(user.uid);
 	playerRef.get().then(function(doc) {
 		if (doc.exists) {
 			let charRef = null;

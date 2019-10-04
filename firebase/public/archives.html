@@ -6,23 +6,31 @@
 		<title>Welcome to Purdue Fantasy Club</title>
 
 		<!-- update the version number as needed -->
-		<script defer src="/__/firebase/7.0.0/firebase-app.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-app.js"></script>
 		<!-- include only the Firebase features as you need -->
-		<script defer src="/__/firebase/7.0.0/firebase-auth.js"></script>
-		<script defer src="/__/firebase/7.0.0/firebase-database.js"></script>
-		<script defer src="/__/firebase/7.0.0/firebase-messaging.js"></script>
-		<script defer src="/__/firebase/7.0.0/firebase-storage.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-auth.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-database.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-messaging.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-storage.js"></script>
 		<!-- initialize the SDK after all desired features are loaded -->
-		<script defer src="/__/firebase/init.js"></script>
-		<script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+		<script src="/__/firebase/init.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 
+		<script src = "common.js"></script>
 		<script src = "archives.js"></script>
-		<script src = "index.js"></script>
+
+		<link rel="stylesheet" href="archives.css">
 	</head>
 
 	<body>
-		Find Your Magic Item: 
-		<input type="search" id="itemSearch" oninput="search()">
+		<div id="search">
+			Find Your Magic Item: 
+			<input type="search" id="itemSearch" oninput="search()">
+		</div>
+		<div id="itemContainer">
+			<ul id="itemList">
+			</ul>
+		</div>
 	</body>
 </html>
 

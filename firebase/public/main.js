@@ -1,14 +1,7 @@
 function init() {
 	initDB()
 	watchUser(function(){
-	});
-}
-
-function signout() {
-	firebase.auth().signOut().then(function() {
-		// Sign-out successful.
-	}).catch(function(error) {
-		// An error happened.
+		removeOverlay();	
 	});
 }
 
@@ -17,8 +10,14 @@ function characters() {
 }
 
 function gm() {
-	verifyPrivilege("gm", function() {
+	verifyPrivilege(3, function() {
 		changePage("gm.html");
+	});
+}
+
+function admin() {
+	verifyPrivilege(4, function() {
+		changePage("admin.html");
 	});
 }
 

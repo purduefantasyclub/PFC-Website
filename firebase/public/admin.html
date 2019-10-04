@@ -6,22 +6,31 @@
 		<title>Welcome to Firebase Hosting</title>
 
 		<!-- update the version number as needed -->
-		<script defer src="/__/firebase/7.0.0/firebase-app.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-app.js"></script>
 		<!-- include only the Firebase features as you need -->
-		<script defer src="/__/firebase/7.0.0/firebase-auth.js"></script>
-		<script defer src="/__/firebase/7.0.0/firebase-database.js"></script>
-		<script defer src="/__/firebase/7.0.0/firebase-messaging.js"></script>
-		<script defer src="/__/firebase/7.0.0/firebase-storage.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-auth.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-database.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-messaging.js"></script>
+		<script src="/__/firebase/7.0.0/firebase-storage.js"></script>
 		<!-- initialize the SDK after all desired features are loaded -->
-		<script defer src="/__/firebase/init.js"></script>
-		<script defer src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+		<script src="/__/firebase/init.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 
 		<script src = "common.js"></script>
 		<script src = "admin.js"></script>
+		<link rel="stylesheet" href="hide.css">
 	</head>
 
 	<body>
-
+		<div id="overlay">
+		</div>
+		<div id="content">
+			<select id="players">
+			</select>
+			<button onclick="makeGM()">Give GM Privileges</button>
+			GM Prefix<input type="text" id="gmPrefix">
+			<button onclick="revokeGM()">Revoke GM Privileges</button>
+		</div>
 	</body>
 </html>
 
