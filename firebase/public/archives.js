@@ -9,7 +9,7 @@ async function search() {
 	let itemSearch = document.getElementById('itemSearch').value;
 	let itemList = document.getElementById('itemList');
 	if (itemSearch == "") {
-		clearItems(itemList);
+		clearList(itemList);
 		return;
 	}
 	
@@ -18,7 +18,7 @@ async function search() {
 	let matches = [];
 	await searchGMID(itemSearch, matches);
 	await searchItemName(itemSearch, matches);
-	clearItems(itemList);
+	clearList(itemList);
 	for (i = 0; i < matches.length; i++) {
 		if (document.getElementById('itemSearch').value != itemSearch) {
 			return;
@@ -74,6 +74,9 @@ function addItem(itemID, name) {
 	let itemDiv = document.createElement('div');
 	itemDiv.className = 'item';
 	itemDiv.value = itemID;
+	itemDiv.onclick = function() {
+		loadItem(itemDiv.value);	
+	};
 
 	let itemCell = document.createElement("span");
 	
@@ -99,8 +102,15 @@ function addItem(itemID, name) {
 	itemList.append(item);
 }
 
-function clearItems(list) {
-	list.innerHTML = '';
+function loadItem(itemID) {
+	let itemRef = db.collection("items").doc(itemID);
+	itemRef.get().then(function(doc) {
+		let data = doc.data();
+		let description = data.description;
+		let gmDescription = data.gmdescription;
+	}).catch(function(error) {
+
+	});
 }
 
 window.onload = init;

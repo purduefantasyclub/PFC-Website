@@ -16,32 +16,60 @@
 		<script src="/__/firebase/init.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 
-		<script src = "common.js"></script>
-		<script src = "characters.js"></script>
+		<script src="common.js"></script>
+		<script src="characters.js"></script>
 
 		<link rel="stylesheet" href="common.css">
 		<link rel="stylesheet" href="characters.css">
 	</head>
 
 	<body>
-		<div>
+		<div id="pageWrapper">
 			<div id="characters">
 				<ul id="characterList">
 				</ul>
 			</div>
 			<div id="content">
-				<input type="text" id="newCharacterName">
 				<button id="createChar" onclick="createNewCharacter()">create a new character</button>
-				<select id="charactersOLD" onchange="displayCharacter()">
-				</select>
+				<input type="text" id="newCharacterName" placeholder="name">
 				<div id="characterSheet">
-					<div id="info">
+					<div id="nav">
+						<div id="statNav" class="navWrapper" onclick="loadStatSheet()">
+							<div class="navElement">
+								<span>STATS</span>
+							</div>
+						</div>
+						<div id="itemNav" class="navWrapper" onclick="loadItemSheet()">
+							<div class="navElement">
+								<span>ITEMS</span>
+							</div>
+						</div>
+						<div id="skillNav" class="navWrapper" onclick="loadSkillSheet()">
+							<div class="navElement">
+								<span>SKILLS</span>
+							</div>
+						</div>
+						<div id="abilitiyNav" class="navWrapper" onclick="loadAbilitySheet()">
+							<div class="navElement">
+								<span>ABILITES</span>
+							</div>
+						</div>
 					</div>
-					<div id="stats">
+					<div id="statBlock">
+						<ul id="stats">
+							<li id="STR"><div><span class="stat">STR: 12</span></div></li>
+							<li id="INT"><div><span class="stat">INT: 12</span></div></li>
+							<li id="PER"><div><span class="stat">PER: 12</span></div></li>
+							<li id="CSE"><div><span class="stat">CSE: 12</span></div></li>
+							<li id="HEA"><div><span class="stat">HEA: 12</span></div></li>
+							<li id="AGI"><div><span class="stat">AGI: 12</span></div></li>
+							<li id="PWR"><div><span class="stat">PWR: 12</span></div></li>
+							<li id="WIL"><div><span class="stat">WIL: 12</span></div></li>
+							<li id="COM"><div><span class="stat">COM: 12</span></div></li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</body>
 </html>
-

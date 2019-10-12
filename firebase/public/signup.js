@@ -63,10 +63,11 @@ function createPlayer(user, name) {
 	// Get a reference to the database service
 	var db = firebase.firestore();
 	db.collection("players").doc(uid).set({
-		name: 	    name,
+		name: name,
 		characters: [],
-		userLevel:  2,
+		privilige: 2,
 		items: 0,
+		gmprefix: "",
 	}).then(function() {
 		changePage("main.html");
 	}).catch(function(error) {
